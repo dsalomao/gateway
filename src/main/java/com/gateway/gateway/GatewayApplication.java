@@ -20,13 +20,37 @@ public class GatewayApplication {
     public RouteLocator myRoutes(RouteLocatorBuilder builder) {
 
         return builder.routes()
-			.route(p -> p
             // Declarações das rotas do Micro serviço de veículos
+			.route(p -> p
                 .path("/veiculos")
                 .uri("http://localhost:8081/veiculos"))
 			.route(p -> p
                 .path("/veiculos/salvar")
                 .uri("http://localhost:8081/veiculos/salvar"))
+
+            // Declarações das rotas do Micro serviço de reparos
+            .route(p -> p   
+                .path("/reparos")
+                .uri("http://localhost:8082/reparos"))
+            .route(p -> p
+                .path("/reparos/salvar")
+                .uri("http://localhost:8082/reparos/salvar"))
+
+            // Declarações das rotas do Micro serviço de compras
+            .route(p -> p   
+                .path("/compras")
+                .uri("http://localhost:8083/compras"))
+            .route(p -> p
+                .path("/compras/salvar")
+                .uri("http://localhost:8083/compras/salvar"))
+
+            // Declarações das rotas do Micro serviço de vendas
+            .route(p -> p   
+                .path("/vendas")
+                .uri("http://localhost:8084/vendas"))
+            .route(p -> p
+                .path("/vendas/salvar")
+                .uri("http://localhost:8084/vendas/salvar"))
         	.build();
     }
 }
